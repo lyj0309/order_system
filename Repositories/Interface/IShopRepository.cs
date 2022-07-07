@@ -8,5 +8,6 @@ namespace Repositories
 {
     public interface IShopRepository
     {
+         void Add(ShopEntity entity);
     }
 }

@@ -1,19 +1,18 @@
 ﻿using Common;
-using Model;
-using Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services;
 
 public class ShopService : IShopService
 {
+    private readonly IShopRepository shopRepository;
+    public ShopService(IShopRepository shopRepository)
+    {
+        this.shopRepository = shopRepository;
+    }
     public void Create(ShopModel model)
     {
         var entity = model.MapTo<ShopEntity>();
+        this.shopRepository.Add(entity);
         //var entity = new ShopEntity()
         //{
         //    Id = Guid.NewGuid(),
@@ -21,6 +20,5 @@ public class ShopService : IShopService
         //    Address = model.Address ,
         //    Password = model.Password.ToSHA512() ,
         //};
-        throw new NotImplementedException() ;
     }
 }

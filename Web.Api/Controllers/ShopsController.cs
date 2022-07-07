@@ -16,10 +16,9 @@ public class ShopsController : ControllerBase
         this.shopService = shopService;
     }
 
-    [HttpPost("register")]
+    [HttpPost()]
     public IActionResult Register(ShopModel model)
     {
-
         try
         {
             this.shopService.Create(model);
