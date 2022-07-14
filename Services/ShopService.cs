@@ -21,4 +21,21 @@ public class ShopService : IShopService
         //    Password = model.Password.ToSHA512() ,
         //};
     }
+
+    public List<ShopModel> GetAll()
+    {
+        var list = this.shopRepository.GetAll();
+        list.ForEach(s=>s.Password = string.Empty);
+        return list.MapToList<ShopModel>();
+    }
+
+    public ShopModel? Login(LoginRequest request)
+    {
+        var entity = this.shopRepository.GetByNameAndPass(request.Name, request.Password.ToSHA512());
+        if (entity != null)
+        {
+            return new ShopModel() { Name = entity.Name};
+        }
+        return null;
+    }
 }

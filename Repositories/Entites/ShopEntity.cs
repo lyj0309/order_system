@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repositories;
+﻿namespace Repositories;
+[Table("Shops")]
 public class ShopEntity
 {
     public Guid Id { get; set; }

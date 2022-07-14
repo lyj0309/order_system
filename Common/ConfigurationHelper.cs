@@ -7,11 +7,11 @@ public class ConfigurationHelper
     private static IConfigurationRoot config;
     public static void Init()
     {
-        config = new ConfigurationBuilder().AddJsonFile("appsettings.json",true,true).Build();
+        config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
     }
 
     public static string ConnectionString
     {
-        get{return config["ConnectionString"];}
+        get { return config["ConnectionString"]; }
     }
 }

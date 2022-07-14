@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common;
 
@@ -13,7 +8,7 @@ public static class AutoMapperExtensions
 {
     //IServiceProvider是system接口
     private static IServiceProvider _serviceProvider;
-    
+
     public static void UseAutoMapper(this IServiceProvider serviceProvider)//拓展方法
     {
         _serviceProvider = serviceProvider;

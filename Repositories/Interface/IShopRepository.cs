@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repositories
+﻿namespace Repositories
 {
-    public interface IShopRepository
+    public interface IShopRepository : IRepository<ShopEntity>
     {
-         void Add(ShopEntity entity);
+        //void Add(ShopEntity entity);
     }
 }

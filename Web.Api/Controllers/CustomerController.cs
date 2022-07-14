@@ -1,26 +1,26 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Model;
 
 namespace Web.Api.Controllers;
 
 [ApiController]
-[Route("shops")]
-public class ShopsController : ControllerBase
+[Route("[Controller]")]
+public class CustomerController : ControllerBase
 {
-    readonly IShopService shopService;
+    readonly ICustomerService customerService;
 
-    public ShopsController(IShopService shopService)
+    public CustomerController(ICustomerService customerService)
     {
         //依赖注入 
-        this.shopService = shopService;
+        this.customerService = customerService;
     }
 
     [HttpPost("register")]
-    public IActionResult Register(ShopModel model)
+    public IActionResult Register(CustomerModel model)
     {
         try
         {
-            this.shopService.Create(model);
+            this.customerService.Create(model);
             return new JsonResult(new ResponseModel<bool>());
         }
         catch (Exception e)
@@ -33,8 +33,8 @@ public class ShopsController : ControllerBase
     {
         try
         {
-            var shops = this.shopService.GetAll();
-            return new JsonResult(new ResponseModel<List<ShopModel>>(shops));
+            var customers = this.customerService.GetAll();
+            return new JsonResult(new ResponseModel<List<CustomerModel>>(customers));
         } 
         catch (Exception e)
         {
@@ -46,12 +46,12 @@ public class ShopsController : ControllerBase
     {
         try
         {
-            var model = this.shopService.Login(request);
+            var model = this.customerService.Login(request);
             if (model == null)
             {
                 return new JsonResult(new ResponseModel<bool>(false, "the user name or pass is not correct"));
             }
-            return new JsonResult(new ResponseModel<ShopModel>(model));
+            return new JsonResult(new ResponseModel<CustomerModel>(model));
         } 
         catch (Exception e)
         {

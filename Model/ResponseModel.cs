@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
     public class ResponseModel<T>
     {
@@ -16,10 +10,17 @@ namespace Model
         {
             IsSuccess = true;
         }
-        public ResponseModel(bool isSuccess,string error)
+        public ResponseModel(bool isSuccess, string error)
         {
             this.IsSuccess = isSuccess;
             this.ErrorMessage = error;
         }
+
+        public ResponseModel(T data)
+        {
+            this.IsSuccess = true;
+            this.Data = data;
+        }
     }
+
 }

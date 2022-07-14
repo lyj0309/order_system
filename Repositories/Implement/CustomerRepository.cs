@@ -1,18 +1,15 @@
 ﻿namespace Repositories
 {
-    public class ShopRepository : RepositoryBase<ShopEntity>, IShopRepository
+    public class CustomerRepository : RepositoryBase<CustomerEntity>, ICustomerRepository
     {
         private readonly SqlContext db;
 
-        public ShopRepository(SqlContext context)
+        public CustomerRepository(SqlContext context)
         {
             this.db = context;
         }
 
-
-
-
-        /*        public void Add(ShopEntity entity)
+        /*        public void Add(CustomerEntity entity)
        {
            db.Add(entity);
            db.SaveChanges();
