@@ -31,6 +31,12 @@ public class CustomerService : ICustomerService
         return list.MapToList<CustomerModel>();
     }
 
+    public CustomerModel GetById(Guid id)
+    {
+        var list = this.customersRepository.GetById(id);
+        return list.MapTo<CustomerModel>();
+    }
+
     public CustomerModel? Login(LoginRequest request)
     {
         var entity = this.customersRepository.GetByNameAndPass(request.Name, request.Password.ToSHA512());

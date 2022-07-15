@@ -1,6 +1,6 @@
 ﻿namespace Repositories;
 
-
+[Table("Orders")]
 public class OrderEntity
 {
     public Guid Id { get; set; }
@@ -11,5 +11,3 @@ public class OrderEntity
     public DateTime CreateTime { get; set; }
 
 }
-
-

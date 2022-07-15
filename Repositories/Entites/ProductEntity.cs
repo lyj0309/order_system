@@ -1,4 +1,5 @@
 ﻿namespace Repositories;
+[Table("Shops")]
 public class ProductEntity
 {
     public Guid Id { get; set; }

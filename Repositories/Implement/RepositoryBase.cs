@@ -8,10 +8,19 @@ namespace Repositories
         protected string tableName = typeof(T).GetCustomAttribute<TableAttribute>()?.TableName;
 
         protected IDatabaseHelper databaseHelper = new DatabaseHelper(ConfigurationHelper.ConnectionString);
+
+        private readonly SqlContext db;
+
+
+/*        public RepositoryBase(SqlContext context)
+        {
+            this.db = context;
+
+        }*/
         public void Add(T entity)
         {
             Dictionary<string, object> parameters = GetAllProperties(entity);
-            var sql = $"INSERT INTO {tableName}([{String.Join("],[", parameters.Keys)}]) VALUES (@{String.Join(",@", parameters.Keys)} )";
+            var sql = $"INSERT INTO {tableName} ([{String.Join("],[", parameters.Keys)}]) VALUES (@{String.Join(",@", parameters.Keys)} )";
             this.databaseHelper.ExecuteNonQuery(sql, parameters);
         }
         public void Delete(T entity, Guid id)

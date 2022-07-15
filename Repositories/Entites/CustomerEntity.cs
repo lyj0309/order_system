@@ -1,6 +1,7 @@
 ﻿
 using Model;
 namespace Repositories;
+[Table("Customers")]
 public class CustomerEntity
 {
     public Guid Id { get; set; }

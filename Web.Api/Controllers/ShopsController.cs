@@ -40,7 +40,25 @@ public class ShopsController : ControllerBase
         {
             return new JsonResult(new ResponseModel<bool>(false, e.Message));
         }
-    }    
+    }
+    [HttpGet("{id}")]
+    public IActionResult GetById(string id)
+    {
+        try
+        {
+            var guid = Guid.Parse(id);
+
+            var shop = this.shopService.GetById(guid);
+            return new JsonResult(new ResponseModel<ShopModel>(shop));
+        } 
+        catch (Exception e)
+        {
+            return new JsonResult(new ResponseModel<bool>(false, e.Message));
+        }
+    }
+
+    
+
     [HttpPost("login")]
     public IActionResult Login(LoginRequest request)
     {

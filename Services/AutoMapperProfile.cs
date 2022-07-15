@@ -13,5 +13,7 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
             .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password.ToSHA512()));
         CreateMap<ShopEntity, ShopModel>();
-    }
+
+        CreateMap<CustomerEntity, CustomerModel>();
+    } 
 }
