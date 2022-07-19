@@ -74,14 +74,14 @@ void addServices(IServiceCollection services)
     services.AddScoped<ICustomerService, CustomerService>();
     services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-    // services.AddScoped<IShoppingCartService, ShoppingCartService>();
-    // services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
+     services.AddScoped<IShoppingCartService, ShoppingCartService>();
+     services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 
-    // services.AddScoped<IProductService, ProductService>();
-    // services.AddScoped<IProductRepository, ProductRepository>();
+     services.AddScoped<IProductService, ProductService>();
+     services.AddScoped<IProductRepository, ProductRepository>();
 
-    // services.AddScoped<IOrderService, OrderService>();
-    // services.AddScoped<IOrderRepository, OrderRepository>();
+     services.AddScoped<IOrderService, OrderService>();
+     services.AddScoped<IOrderRepository, OrderRepository>();
 
 
     services.AddAutoMapper(typeof(AutoMapperProfile));

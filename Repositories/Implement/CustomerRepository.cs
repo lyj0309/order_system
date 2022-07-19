@@ -2,5 +2,6 @@
 {
     public class CustomerRepository : RepositoryBase<CustomerEntity>, ICustomerRepository
     {
+
     }
 }

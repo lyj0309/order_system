@@ -5,11 +5,11 @@ namespace Web.Api.Controllers;
 
 [ApiController]
 [Route("[Controller]")]
-public class CustomerController : ControllerBase
+public class CustomersController : ControllerBase
 {
     readonly ICustomerService customerService;
 
-    public CustomerController(ICustomerService customerService)
+    public CustomersController(ICustomerService customerService)
     {
         //依赖注入 
         this.customerService = customerService;

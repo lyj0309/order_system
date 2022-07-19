@@ -6,7 +6,6 @@
         List<T> GetAll();
         T GetByNameAndPass(string name, string pass);
         T GetById(Guid id);
-        void Delete(T entity, Guid id);
-        void Update(T entity, Guid id);
+        void Delete(Guid id);
     }
 }

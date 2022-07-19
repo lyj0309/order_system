@@ -15,5 +15,7 @@ public class AutoMapperProfile : Profile
         CreateMap<ShopEntity, ShopModel>();
 
         CreateMap<CustomerEntity, CustomerModel>();
+        CreateMap<ProductEntity, ProductModel>();
+        CreateMap<ProductModel, ProductEntity>();
     } 
 }

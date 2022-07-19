@@ -11,14 +11,26 @@ public class OrderService : IOrderService
     }
     public void Create(OrderModel model)
     {
-        var entity = model.MapTo<OrderEntity>();
+        var entity = new OrderEntity()
+        {
+            Id = Guid.NewGuid(),
+            CustomerId = model.CustomerId,
+            ShopId = Guid.Empty,
+            ProductId = model.ProductId,
+            Status = OrderSataus.UnDone,
+            CreateTime = DateTime.Now,
+
+        };
         this.OrderRepository.Add(entity);
-        //var entity = new OrderEntity()
-        //{
-        //    Id = Guid.NewGuid(),
-        //    Name = model.Name  ,
-        //    Address = model.Address ,
-        //    Password = model.Password.ToSHA512() ,
-        //};
+    }
+
+    public void Done(Guid id)
+    {
+        this.OrderRepository.Done(id);
+    }
+
+    public void Receive(Guid id, Guid shopId)
+    {
+        this.OrderRepository.Receive(id,shopId);
     }
 }

@@ -5,11 +5,11 @@
         public bool IsSuccess { get; set; }
         public T Data { get; set; }
         public string ErrorMessage { get; set; }
-
         public ResponseModel()
         {
             IsSuccess = true;
         }
+
         public ResponseModel(bool isSuccess, string error)
         {
             this.IsSuccess = isSuccess;

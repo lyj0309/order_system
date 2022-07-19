@@ -3,8 +3,7 @@
     public interface IOrderService
     {
         void Create(OrderModel model);
-
-        void SetDone(Guid id);
-        void Recvive(Guid id);
+        void Receive(Guid id,Guid ShopId);
+        void Done(Guid id);
     }
 }

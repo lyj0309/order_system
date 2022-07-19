@@ -1,5 +1,5 @@
 ﻿namespace Repositories;
-[Table("ShoppingCart")]
+[Table("ShoppingCarts")]
 public class ShoppingCartEntity
 {
     public Guid Id { get; set; }

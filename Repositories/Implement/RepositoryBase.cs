@@ -12,18 +12,18 @@ namespace Repositories
         private readonly SqlContext db;
 
 
-/*        public RepositoryBase(SqlContext context)
-        {
-            this.db = context;
+        /*        public RepositoryBase(SqlContext context)
+                {
+                    this.db = context;
 
-        }*/
+                }*/
         public void Add(T entity)
         {
             Dictionary<string, object> parameters = GetAllProperties(entity);
             var sql = $"INSERT INTO {tableName} ([{String.Join("],[", parameters.Keys)}]) VALUES (@{String.Join(",@", parameters.Keys)} )";
             this.databaseHelper.ExecuteNonQuery(sql, parameters);
         }
-        public void Delete(T entity, Guid id)
+        public void Delete(Guid id)
         {
             var sql = $"DELETE FROM {this.tableName} WHERE Id = @Id";
             var parameter = new Dictionary<string, object>
@@ -32,12 +32,7 @@ namespace Repositories
             };
             this.databaseHelper.ExecuteNonQuery(sql, parameter);
         }
-        public void Update(T entity, Guid id)
-        {
-            Dictionary<string, object> parameters = GetAllProperties(entity);
-            var sql = $"UPDATE {tableName}([{String.Join("],[", parameters.Keys)}]) VALUES (@{String.Join(",@", parameters.Keys)} )";
-            this.databaseHelper.ExecuteNonQuery(sql, parameters);
-        }
+
         public List<T> GetAll()
         {
             var result = new List<T>();
