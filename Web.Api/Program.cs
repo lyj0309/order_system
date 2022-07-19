@@ -49,7 +49,7 @@ app.UseMiddleware<LogMiddleware>();
 app.Services.UseAutoMapper();
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
